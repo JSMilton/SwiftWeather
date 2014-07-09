@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import CoreLocation
 
-class LocationManager {
+class LocationManager: NSObject, CLLocationManagerDelegate {
     class var sharedInstance: LocationManager {
         struct Singleton {
             static let instance = LocationManager()
@@ -16,7 +17,9 @@ class LocationManager {
         return Singleton.instance
     }
     
-    init() {
-        println("fuck you whales")
+    let locationManager: CLLocationManager = CLLocationManager()
+    
+    func setup() {
+        locationManager.delegate = self
     }
 }

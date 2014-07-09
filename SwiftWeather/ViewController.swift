@@ -19,13 +19,15 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         if self.shouldRefreshData {
             self.performSegueWithIdentifier("LoadingSegue", sender: nil)
             var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?q=London,uk"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
-            ApiClient.sharedInstance.getJSONData(request, completionBlock: {
+            ApiClient.sharedInstance.getJSONData(request){
                 (data:NSDictionary?, error:NSError?) in
                 if let e = error {
                     println(e)
                 } else {
                     println(data)
                 }
+                
+                LocationManager.sharedInstance
                 
                 self.shouldRefreshData = false
                 
@@ -34,7 +36,7 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
                 dispatch_after(time, dispatch_get_main_queue()) {
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
-            })
+            }
         }
     }
 }
