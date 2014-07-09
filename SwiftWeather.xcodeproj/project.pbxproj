@@ -15,6 +15,7 @@
 		4FF1B7A7195484CF000A4149 /* SwiftWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1B7A6195484CF000A4149 /* SwiftWeatherTests.swift */; };
 		BECED57E196D7658001BE035 /* sun-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BECED57D196D7658001BE035 /* sun-icon.png */; };
 		BECED581196D789F001BE035 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECED580196D789F001BE035 /* LoadingViewController.swift */; };
+		BECED583196D9DD3001BE035 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECED582196D9DD3001BE035 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		4FF1B7A6195484CF000A4149 /* SwiftWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWeatherTests.swift; sourceTree = "<group>"; };
 		BECED57D196D7658001BE035 /* sun-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sun-icon.png"; sourceTree = "<group>"; };
 		BECED580196D789F001BE035 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		BECED582196D9DD3001BE035 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				4FF1B793195484CF000A4149 /* AppDelegate.swift */,
 				4FF1B795195484CF000A4149 /* ViewController.swift */,
 				4F340F0A1957303100B94D0D /* ApiClient.swift */,
+				BECED582196D9DD3001BE035 /* LocationManager.swift */,
 				BECED580196D789F001BE035 /* LoadingViewController.swift */,
 				4FF1B797195484CF000A4149 /* Main.storyboard */,
 				4FF1B79A195484CF000A4149 /* Images.xcassets */,
@@ -228,6 +231,7 @@
 			files = (
 				4FF1B796195484CF000A4149 /* ViewController.swift in Sources */,
 				4FF1B794195484CF000A4149 /* AppDelegate.swift in Sources */,
+				BECED583196D9DD3001BE035 /* LocationManager.swift in Sources */,
 				4F340F0B1957303100B94D0D /* ApiClient.swift in Sources */,
 				BECED581196D789F001BE035 /* LoadingViewController.swift in Sources */,
 			);
