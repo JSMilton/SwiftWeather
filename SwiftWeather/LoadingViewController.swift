@@ -25,10 +25,10 @@ class LoadingViewController: UIViewController {
     
     func animate() {
         UIView.animateWithDuration(0.45, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: ({
-            self.imageView.transform = self.rotateAndScale(0.8, angle: 1.57, transform: self.imageView.transform)
+            self.imageView.transform = self.rotateAndScale(0.8, angle: 3.14, transform: self.imageView.transform)
         }), completion: {(b: Bool) in
             UIView.animateWithDuration(0.45, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: ({
-                self.imageView.transform = self.rotateAndScale(1.25, angle: 1.57, transform: self.imageView.transform)
+                self.imageView.transform = self.rotateAndScale(1.25, angle: 3.14, transform: self.imageView.transform)
             }), completion:nil)
         })
     }

@@ -18,16 +18,18 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     
     override func viewDidAppear(animated: Bool) {
         self.performSegueWithIdentifier("LoadingSegue", sender: nil)
-//        var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?q=London,uk"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
-//        let apiClient:ApiClient = ApiClient()
-//        apiClient.getJSONData(request, completionBlock: {
-//            (data:NSDictionary?, error:NSError?) in
-//            if let e = error {
-//                println(e)
-//            } else {
-//                println(data)
-//            }
+        var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?q=London,uk"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
+        let apiClient:ApiClient = ApiClient()
+        apiClient.getJSONData(request, completionBlock: {
+            (data:NSDictionary?, error:NSError?) in
+            if let e = error {
+                println(e)
+            } else {
+                println(data)
+            }
+            
+//            dispatch_after(when: 1.0, queue: dispatch_get_main_queue(), block: dispatch_block_t?)
 //            self.dismissViewControllerAnimated(true, completion: nil)
-//        })
+        })
     }
 }
