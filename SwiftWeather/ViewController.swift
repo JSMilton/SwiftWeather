@@ -14,22 +14,20 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?q=London,uk"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
-        
-        let apiClient:ApiClient = ApiClient()
-        apiClient.getJSONData(request, completionBlock: {
-            (data:NSDictionary?, error:NSError?) in
-            if let e = error {
-                println(e)
-            } else {
-                println(data)
-            }
-        })
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(animated: Bool) {
+        self.performSegueWithIdentifier("LoadingSegue", sender: nil)
+//        var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?q=London,uk"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
+//        let apiClient:ApiClient = ApiClient()
+//        apiClient.getJSONData(request, completionBlock: {
+//            (data:NSDictionary?, error:NSError?) in
+//            if let e = error {
+//                println(e)
+//            } else {
+//                println(data)
+//            }
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//        })
     }
 }
-

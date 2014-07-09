@@ -13,6 +13,8 @@
 		4FF1B799195484CF000A4149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1B797195484CF000A4149 /* Main.storyboard */; };
 		4FF1B79B195484CF000A4149 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1B79A195484CF000A4149 /* Images.xcassets */; };
 		4FF1B7A7195484CF000A4149 /* SwiftWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1B7A6195484CF000A4149 /* SwiftWeatherTests.swift */; };
+		BECED57E196D7658001BE035 /* sun-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BECED57D196D7658001BE035 /* sun-icon.png */; };
+		BECED581196D789F001BE035 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECED580196D789F001BE035 /* LoadingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		4FF1B7A0195484CF000A4149 /* SwiftWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FF1B7A5195484CF000A4149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FF1B7A6195484CF000A4149 /* SwiftWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWeatherTests.swift; sourceTree = "<group>"; };
+		BECED57D196D7658001BE035 /* sun-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sun-icon.png"; sourceTree = "<group>"; };
+		BECED580196D789F001BE035 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +81,11 @@
 		4FF1B790195484CF000A4149 /* SwiftWeather */ = {
 			isa = PBXGroup;
 			children = (
+				BECED57F196D765D001BE035 /* Icons */,
 				4FF1B793195484CF000A4149 /* AppDelegate.swift */,
 				4FF1B795195484CF000A4149 /* ViewController.swift */,
 				4F340F0A1957303100B94D0D /* ApiClient.swift */,
+				BECED580196D789F001BE035 /* LoadingViewController.swift */,
 				4FF1B797195484CF000A4149 /* Main.storyboard */,
 				4FF1B79A195484CF000A4149 /* Images.xcassets */,
 				4FF1B791195484CF000A4149 /* Supporting Files */,
@@ -110,6 +116,14 @@
 				4FF1B7A5195484CF000A4149 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BECED57F196D765D001BE035 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				BECED57D196D7658001BE035 /* sun-icon.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +208,7 @@
 			files = (
 				4FF1B799195484CF000A4149 /* Main.storyboard in Resources */,
 				4FF1B79B195484CF000A4149 /* Images.xcassets in Resources */,
+				BECED57E196D7658001BE035 /* sun-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +229,7 @@
 				4FF1B796195484CF000A4149 /* ViewController.swift in Sources */,
 				4FF1B794195484CF000A4149 /* AppDelegate.swift in Sources */,
 				4F340F0B1957303100B94D0D /* ApiClient.swift in Sources */,
+				BECED581196D789F001BE035 /* LoadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
