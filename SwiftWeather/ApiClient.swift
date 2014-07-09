@@ -10,16 +10,21 @@ import Foundation
 
 class ApiClient: NSObject, NSURLConnectionDelegate {
     var receivedData: NSMutableData = NSMutableData(capacity: 0)
-    var block: ((NSDictionary, NSError) -> (Void))?
+    var block: ((NSDictionary?, NSError?) -> (Void))?
     
-    func getJSONData(request: NSURLRequest!, completionBlock: ((NSDictionary, NSError) -> Void)!){
+    func getJSONData(request: NSURLRequest!, completionBlock: ((NSDictionary?, NSError?) -> Void)!){
         let connection = NSURLConnection(request: request, delegate: self, startImmediately: true)
         block = completionBlock
     }
     
     func connection(connection: NSURLConnection!,
         didReceiveResponse response: NSURLResponse!) {
-            println(response)
+            let httpResponse = response as NSHTTPURLResponse
+            if httpResponse.statusCode != 200 {
+                block!(nil, NSError(domain: "API Client Error - No welcome message received from server", code: httpResponse.statusCode, userInfo: nil))
+            } else {
+                 println("API Client: Welcome message received - \(httpResponse.statusCode)")
+            }
     }
     
     func connection(connection: NSURLConnection!,
@@ -28,12 +33,12 @@ class ApiClient: NSObject, NSURLConnectionDelegate {
     }
     
     func connectionDidFinishLoading(connection: NSURLConnection!) {
-        println("hurrah, I've finished downloading!")
         let dict: NSDictionary = NSJSONSerialization.JSONObjectWithData(receivedData, options: NSJSONReadingOptions.AllowFragments, error: nil) as NSDictionary
-        block!(dict, NSError())
+        block!(dict, nil)
     }
     
     func connection(connection: NSURLConnection!, didFailWithError error: NSError!) {
         println("API Client: Request Failed - \(error.localizedDescription)")
+        block!(nil, error)
     }
 }
