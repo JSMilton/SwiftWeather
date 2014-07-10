@@ -13,6 +13,7 @@
 		4FF1B799195484CF000A4149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1B797195484CF000A4149 /* Main.storyboard */; };
 		4FF1B79B195484CF000A4149 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1B79A195484CF000A4149 /* Images.xcassets */; };
 		4FF1B7A7195484CF000A4149 /* SwiftWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1B7A6195484CF000A4149 /* SwiftWeatherTests.swift */; };
+		BE154E9A196EC1B20049F406 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE154E99196EC1B20049F406 /* ViewControllerExtensions.swift */; };
 		BECED57E196D7658001BE035 /* sun-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BECED57D196D7658001BE035 /* sun-icon.png */; };
 		BECED581196D789F001BE035 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECED580196D789F001BE035 /* LoadingViewController.swift */; };
 		BECED583196D9DD3001BE035 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECED582196D9DD3001BE035 /* LocationManager.swift */; };
@@ -39,6 +40,7 @@
 		4FF1B7A0195484CF000A4149 /* SwiftWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FF1B7A5195484CF000A4149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FF1B7A6195484CF000A4149 /* SwiftWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWeatherTests.swift; sourceTree = "<group>"; };
+		BE154E99196EC1B20049F406 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		BECED57D196D7658001BE035 /* sun-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sun-icon.png"; sourceTree = "<group>"; };
 		BECED580196D789F001BE035 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		BECED582196D9DD3001BE035 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				BECED57F196D765D001BE035 /* Icons */,
 				4FF1B793195484CF000A4149 /* AppDelegate.swift */,
 				4FF1B795195484CF000A4149 /* ViewController.swift */,
+				BE154E99196EC1B20049F406 /* ViewControllerExtensions.swift */,
 				4F340F0A1957303100B94D0D /* ApiClient.swift */,
 				BECED582196D9DD3001BE035 /* LocationManager.swift */,
 				BECED580196D789F001BE035 /* LoadingViewController.swift */,
@@ -233,6 +236,7 @@
 				4FF1B794195484CF000A4149 /* AppDelegate.swift in Sources */,
 				BECED583196D9DD3001BE035 /* LocationManager.swift in Sources */,
 				4F340F0B1957303100B94D0D /* ApiClient.swift in Sources */,
+				BE154E9A196EC1B20049F406 /* ViewControllerExtensions.swift in Sources */,
 				BECED581196D789F001BE035 /* LoadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

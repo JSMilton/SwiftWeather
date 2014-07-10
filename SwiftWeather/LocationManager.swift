@@ -19,7 +19,33 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     let locationManager: CLLocationManager = CLLocationManager()
     
-    func setup() {
+    init()  {
+        super.init()
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.distanceFilter = 500
+    }
+    
+    var block: ((CLLocation?)->Void)?
+    
+    func getUserLocation(completionBlock: ((CLLocation?)->Void)!) {
+        locationManager.startUpdatingLocation()
+        block = completionBlock
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        if block {
+            block!(locations[0] as? CLLocation)
+        }
+        
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!)  {
+        if block {
+            block!(nil)
+        }
+        
+        locationManager.stopUpdatingLocation()
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import CoreLocation
 
 class ViewController: UIViewController, NSURLConnectionDataDelegate {
     var shouldRefreshData: Bool = true
@@ -18,23 +19,24 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     override func viewDidAppear(animated: Bool) {
         if self.shouldRefreshData {
             self.performSegueWithIdentifier("LoadingSegue", sender: nil)
-            var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?q=London,uk"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
-            ApiClient.sharedInstance.getJSONData(request){
-                (data:NSDictionary?, error:NSError?) in
-                if let e = error {
-                    println(e)
+            LocationManager.sharedInstance.getUserLocation(){
+                (location: CLLocation?) in
+                if let loc = location {
+                    var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?lat=\(loc.coordinate.latitude)&lon=\(loc.coordinate.longitude)"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
+                    ApiClient.sharedInstance.getJSONData(request){
+                        (data:NSDictionary?, error:NSError?) in
+                        if let e = error {
+                            println(e)
+                        } else {
+                            println(data)
+                        }
+                        
+                        self.shouldRefreshData = false
+                        self.dismissModalViewControllerAfterDelay(2.5)
+                    }
                 } else {
-                    println(data)
-                }
-                
-                LocationManager.sharedInstance
-                
-                self.shouldRefreshData = false
-                
-                let delay = 2.5 * Double(NSEC_PER_SEC)
-                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                dispatch_after(time, dispatch_get_main_queue()) {
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    println("error getting user location")
+                    self.dismissModalViewControllerAfterDelay(2.5)
                 }
             }
         }
