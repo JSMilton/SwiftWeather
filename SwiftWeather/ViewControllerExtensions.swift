@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func dismissModalViewControllerAfterDelay(delayInSeconds: Double) {
+    func dismissModalViewControllerAfterDelay(delayInSeconds: Double, completion:(()->Void)!) {
         let delay = delayInSeconds * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: completion)
         }
     }
 }

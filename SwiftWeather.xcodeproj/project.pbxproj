@@ -15,6 +15,8 @@
 		4FF1B7A7195484CF000A4149 /* SwiftWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1B7A6195484CF000A4149 /* SwiftWeatherTests.swift */; };
 		BE154E9A196EC1B20049F406 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE154E99196EC1B20049F406 /* ViewControllerExtensions.swift */; };
 		BE154E9C196ECA8E0049F406 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE154E9B196ECA8E0049F406 /* WeatherData.swift */; };
+		BE154EA3196EE43E0049F406 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE154EA2196EE43E0049F406 /* ErrorViewController.swift */; };
+		BE154EA5196EE9D80049F406 /* sad-face.png in Resources */ = {isa = PBXBuildFile; fileRef = BE154EA4196EE9D80049F406 /* sad-face.png */; };
 		BECED57E196D7658001BE035 /* sun-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BECED57D196D7658001BE035 /* sun-icon.png */; };
 		BECED581196D789F001BE035 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECED580196D789F001BE035 /* LoadingViewController.swift */; };
 		BECED583196D9DD3001BE035 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECED582196D9DD3001BE035 /* LocationManager.swift */; };
@@ -43,6 +45,8 @@
 		4FF1B7A6195484CF000A4149 /* SwiftWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWeatherTests.swift; sourceTree = "<group>"; };
 		BE154E99196EC1B20049F406 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		BE154E9B196ECA8E0049F406 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		BE154EA2196EE43E0049F406 /* ErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		BE154EA4196EE9D80049F406 /* sad-face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sad-face.png"; sourceTree = "<group>"; };
 		BECED57D196D7658001BE035 /* sun-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sun-icon.png"; sourceTree = "<group>"; };
 		BECED580196D789F001BE035 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		BECED582196D9DD3001BE035 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -87,14 +91,11 @@
 		4FF1B790195484CF000A4149 /* SwiftWeather */ = {
 			isa = PBXGroup;
 			children = (
+				BE154E9F196EE1BF0049F406 /* Extensions */,
 				BECED57F196D765D001BE035 /* Icons */,
+				BE154E9E196EE1B60049F406 /* ViewControllers */,
+				BE154E9D196EE1AD0049F406 /* Model */,
 				4FF1B793195484CF000A4149 /* AppDelegate.swift */,
-				4FF1B795195484CF000A4149 /* ViewController.swift */,
-				BE154E99196EC1B20049F406 /* ViewControllerExtensions.swift */,
-				4F340F0A1957303100B94D0D /* ApiClient.swift */,
-				BECED582196D9DD3001BE035 /* LocationManager.swift */,
-				BECED580196D789F001BE035 /* LoadingViewController.swift */,
-				BE154E9B196ECA8E0049F406 /* WeatherData.swift */,
 				4FF1B797195484CF000A4149 /* Main.storyboard */,
 				4FF1B79A195484CF000A4149 /* Images.xcassets */,
 				4FF1B791195484CF000A4149 /* Supporting Files */,
@@ -127,10 +128,39 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BE154E9D196EE1AD0049F406 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F340F0A1957303100B94D0D /* ApiClient.swift */,
+				BECED582196D9DD3001BE035 /* LocationManager.swift */,
+				BE154E9B196ECA8E0049F406 /* WeatherData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BE154E9E196EE1B60049F406 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4FF1B795195484CF000A4149 /* ViewController.swift */,
+				BECED580196D789F001BE035 /* LoadingViewController.swift */,
+				BE154EA2196EE43E0049F406 /* ErrorViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BE154E9F196EE1BF0049F406 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BE154E99196EC1B20049F406 /* ViewControllerExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		BECED57F196D765D001BE035 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
 				BECED57D196D7658001BE035 /* sun-icon.png */,
+				BE154EA4196EE9D80049F406 /* sad-face.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -218,6 +248,7 @@
 				4FF1B799195484CF000A4149 /* Main.storyboard in Resources */,
 				4FF1B79B195484CF000A4149 /* Images.xcassets in Resources */,
 				BECED57E196D7658001BE035 /* sun-icon.png in Resources */,
+				BE154EA5196EE9D80049F406 /* sad-face.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +271,7 @@
 				BECED583196D9DD3001BE035 /* LocationManager.swift in Sources */,
 				BE154E9C196ECA8E0049F406 /* WeatherData.swift in Sources */,
 				4F340F0B1957303100B94D0D /* ApiClient.swift in Sources */,
+				BE154EA3196EE43E0049F406 /* ErrorViewController.swift in Sources */,
 				BE154E9A196EC1B20049F406 /* ViewControllerExtensions.swift in Sources */,
 				BECED581196D789F001BE035 /* LoadingViewController.swift in Sources */,
 			);

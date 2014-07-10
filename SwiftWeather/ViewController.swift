@@ -31,17 +31,21 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
                 WeatherData.getWeatherDataForLocation(loc) {
                     (data: WeatherData?) in
                     if let d = data {
-                        // setup ui with weather data
                         self.setupUIWithWeatherData(d)
+                        self.dismissModalViewControllerAfterDelay(2.5, nil)
                     } else {
-                        // show error screen
+                        self.dismissModalViewControllerAfterDelay(2.5) {
+                            self.performSegueWithIdentifier("ErrorSegue", sender: nil)
+                            self.shouldRefreshData = true
+                        }
                     }
-                    
-                    self.dismissModalViewControllerAfterDelay(2.5)
                 }
             } else {
                 println("error getting user location, no weather data collected")
-                self.dismissModalViewControllerAfterDelay(2.5)
+                self.dismissModalViewControllerAfterDelay(2.5) {
+                    self.performSegueWithIdentifier("ErrorSegue", sender: nil)
+                    self.shouldRefreshData = true
+                }
             }
         }
     }
