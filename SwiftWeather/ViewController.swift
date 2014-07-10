@@ -18,27 +18,35 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
     
     override func viewDidAppear(animated: Bool) {
         if self.shouldRefreshData {
-            self.performSegueWithIdentifier("LoadingSegue", sender: nil)
-            LocationManager.sharedInstance.getUserLocation(){
-                (location: CLLocation?) in
-                if let loc = location {
-                    var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?lat=\(loc.coordinate.latitude)&lon=\(loc.coordinate.longitude)"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
-                    ApiClient.sharedInstance.getJSONData(request){
-                        (data:NSDictionary?, error:NSError?) in
-                        if let e = error {
-                            println(e)
-                        } else {
-                            println(data)
-                        }
-                        
-                        self.shouldRefreshData = false
-                        self.dismissModalViewControllerAfterDelay(2.5)
+            refresh()
+            self.shouldRefreshData = false
+        }
+    }
+    
+    func refresh() {
+        self.performSegueWithIdentifier("LoadingSegue", sender: nil)
+        LocationManager.sharedInstance.getUserLocation(){
+            (location: CLLocation?) in
+            if let loc = location {
+                WeatherData.getWeatherDataForLocation(loc) {
+                    (data: WeatherData?) in
+                    if let d = data {
+                        // setup ui with weather data
+                        self.setupUIWithWeatherData(d)
+                    } else {
+                        // show error screen
                     }
-                } else {
-                    println("error getting user location")
+                    
                     self.dismissModalViewControllerAfterDelay(2.5)
                 }
+            } else {
+                println("error getting user location, no weather data collected")
+                self.dismissModalViewControllerAfterDelay(2.5)
             }
         }
+    }
+    
+    func setupUIWithWeatherData(data: WeatherData){
+        println("set me up")
     }
 }
