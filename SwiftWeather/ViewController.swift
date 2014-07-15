@@ -28,7 +28,7 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
         LocationManager.sharedInstance.getUserLocation(){
             (location: CLLocation?) in
             if let loc = location {
-                WeatherData.getWeatherDataForLocation(loc) {
+                WeatherData.getCurrentWeatherDataForLocation(loc) {
                     (data: WeatherData?) in
                     if let d = data {
                         self.setupUIWithWeatherData(d)
