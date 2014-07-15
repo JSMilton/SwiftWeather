@@ -35,9 +35,13 @@ class ApiClient: NSObject, NSURLConnectionDelegate {
     }
     
     func connectionDidFinishLoading(connection: NSURLConnection!) {
-        let dict: NSDictionary = NSJSONSerialization.JSONObjectWithData(receivedData, options: NSJSONReadingOptions.AllowFragments, error: nil) as NSDictionary
+        let dict: NSDictionary? = NSJSONSerialization.JSONObjectWithData(receivedData, options: NSJSONReadingOptions.AllowFragments, error: nil) as? NSDictionary
         if let b = block {
-            b(dict, nil)
+            if let d = dict {
+                b(d, nil)
+            } else {
+                b(nil, nil)
+            }
         }
     }
     

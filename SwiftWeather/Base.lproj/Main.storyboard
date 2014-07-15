@@ -7,7 +7,7 @@
         <!--Loading View Controller-->
         <scene sceneID="gjy-5W-oEB">
             <objects>
-                <viewController storyboardIdentifier="LoadingScreen" id="blY-iS-OfQ" customClass="LoadingViewController" customModule="SwiftWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadingScreen" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="blY-iS-OfQ" customClass="LoadingViewController" customModule="SwiftWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LnQ-zH-NKP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXG-xJ-tEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-846" y="331"/>
+            <point key="canvasLocation" x="-1028" y="197"/>
         </scene>
         <!--Error View Controller-->
         <scene sceneID="h9D-HF-3RR">
@@ -64,23 +64,31 @@ Tap the screen to reload.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="loe-c9-B8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ObL-rV-PMS"/>
+                <tapGestureRecognizer id="ObL-rV-PMS">
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="modal" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="21A-Gh-L5q"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1258" y="331"/>
+            <point key="canvasLocation" x="-1456" y="197"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SwiftWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="vXZ-lx-hvc" customClass="ViewController" customModule="SwiftWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="q2Y-Lb-wik" kind="modal" identifier="ErrorSegue" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="CAH-tx-xnx"/>
+                        <segue destination="blY-iS-OfQ" kind="modal" identifier="LoadingSegue" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="9BS-hZ-ZaL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1048" y="1006"/>
+            <point key="canvasLocation" x="-1456" y="932"/>
         </scene>
     </scenes>
     <resources>
