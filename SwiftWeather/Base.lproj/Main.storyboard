@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXG-xJ-tEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2152" y="-241"/>
+            <point key="canvasLocation" x="-2150" y="-123"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="h9D-HF-3RR">
@@ -67,7 +67,7 @@ Tap the screen to reload.</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2580" y="-241"/>
+            <point key="canvasLocation" x="-2586" y="-123"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -85,7 +85,7 @@ Tap the screen to reload.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2580" y="494"/>
+            <point key="canvasLocation" x="-2586" y="642"/>
         </scene>
     </scenes>
     <resources>

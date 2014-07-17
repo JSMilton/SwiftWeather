@@ -21,7 +21,7 @@ import CoreLocation
 
 class WeatherData {
     class func getCurrentWeatherDataForLocation(location: CLLocation, completionBlock: ((WeatherData?)->Void)!){
-        var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
+        var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&units=metric"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
         var dataToReturn: WeatherData? = nil
         let apiClient = ApiClient()
         apiClient.getJSONData(request){
@@ -29,7 +29,8 @@ class WeatherData {
             if let e = error {
                 println(e)
             } else {
-                dataToReturn = WeatherData(locationData: data!)
+               println(data)
+                //dataToReturn = self.createCurrentWeatherDataObject(data!)
             }
             
             if let cb = completionBlock {
@@ -40,23 +41,68 @@ class WeatherData {
     
     class func getForecastWeatherDataForLocation(location: CLLocation, days: Int, completionBlock: ((NSArray?)->Void)!){
         var request: NSURLRequest? = NSURLRequest(URL: NSURL(string: "http://api.openweathermap.org/data/2.5/forecast/daily?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&cnt=\(days)&mode=json&units=metric"), cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 60.0)
-        var dataToReturn: WeatherData? = nil
+        var dataToReturn: NSArray? = nil
         let apiClient = ApiClient()
         apiClient.getJSONData(request){
             (data:NSDictionary?, error:NSError?) in
             if let e = error {
                 println(e)
             } else {
-                dataToReturn = WeatherData(locationData: data!)
+                //dataToReturn = self.createForecastWeatherDataArray(data!)
             }
             
             if let cb = completionBlock {
-                //cb(dataToReturn)
+                cb(dataToReturn)
             }
         }
     }
+
+    func getWindDirectionFromDegrees(deg:Float) -> NSString{
+        switch deg {
+        case 0...22.25:
+            return "N"
+        case 22.5...67.5:
+            return "NE"
+        case 67.5...112.5:
+            return "E"
+        case 112.5...157.5:
+            return "SE"
+        case 157.5...202.5:
+            return "S"
+        case 202.5...247.5:
+            return "SW"
+        case 247.5...292.5:
+            return "W"
+        case 292.5...237.5:
+            return "NW"
+        case 337.5...360:
+            return "N"
+        default:
+            return ""
+        }
+    }
     
-    init(locationData: NSDictionary){
-        println(locationData)
+    var locationName:NSString!
+    var currentTemp:NSString!
+    var highTemp:NSString!
+    var lowTemp:NSString!
+    var windSpeed:NSString!
+    var windDirection:NSString!
+    var description:NSString!
+    var iconURL:NSString!
+    
+    init(locationName:NSString, currentTemp:NSString, highTemp:NSString, lowTemp:NSString, windSpeed:NSString, windDirection:Float, description:NSString, icon:Int)
+    {
+        self.locationName = locationName
+        self.currentTemp = currentTemp
+        self.highTemp = highTemp
+        self.lowTemp = lowTemp
+        self.windSpeed = windSpeed
+        self.windDirection = getWindDirectionFromDegrees(windDirection)
+        self.description = description
+        self.iconURL = "http://blah.com?icon=\(icon)"
     }
 }
+
+
+

@@ -11,7 +11,12 @@ import Foundation
 import CoreLocation
 
 class ViewController: UIViewController, NSURLConnectionDataDelegate {
+    let FORECAST_NUMBER_OF_DAYS:Int = 7
+    
     var shouldRefreshData: Bool = true
+    var currentWeather:WeatherData!
+    var forecastWeather:NSArray! // Array of WeatherData objects
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -31,8 +36,15 @@ class ViewController: UIViewController, NSURLConnectionDataDelegate {
                 WeatherData.getCurrentWeatherDataForLocation(loc) {
                     (data: WeatherData?) in
                     if let d = data {
+                        self.currentWeather = d
                         self.setupUIWithWeatherData(d)
                         self.dismissModalViewControllerAfterDelay(2.5, nil)
+                        WeatherData.getForecastWeatherDataForLocation(loc, days: self.FORECAST_NUMBER_OF_DAYS) {
+                            (data:NSArray?) in
+                            if let d = data {
+                                self.forecastWeather = d
+                            }
+                        }
                     } else {
                         self.dismissModalViewControllerAfterDelay(2.5) {
                             self.performSegueWithIdentifier("ErrorSegue", sender: nil)
