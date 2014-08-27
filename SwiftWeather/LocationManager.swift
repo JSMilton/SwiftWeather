@@ -19,7 +19,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     let locationManager: CLLocationManager = CLLocationManager()
     
-    init()  {
+    override init()  {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -34,7 +34,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if block {
+        if block != nil {
             block!(locations[0] as? CLLocation)
         }
         
@@ -42,7 +42,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!)  {
-        if block {
+        if block != nil {
             block!(nil)
         }
         

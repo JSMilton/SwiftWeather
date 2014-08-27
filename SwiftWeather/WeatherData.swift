@@ -29,8 +29,8 @@ class WeatherData {
             if let e = error {
                 println(e)
             } else {
-               println(data)
-                //dataToReturn = self.createCurrentWeatherDataObject(data!)
+                println(data)
+                dataToReturn = WeatherDataFactory.createCurrentWeatherDataObject(data!)
             }
             
             if let cb = completionBlock {
@@ -48,7 +48,7 @@ class WeatherData {
             if let e = error {
                 println(e)
             } else {
-                //dataToReturn = self.createForecastWeatherDataArray(data!)
+                dataToReturn = WeatherDataFactory.createForecastWeatherDataArray(data!)
             }
             
             if let cb = completionBlock {
@@ -57,7 +57,7 @@ class WeatherData {
         }
     }
 
-    func getWindDirectionFromDegrees(deg:Float) -> NSString{
+    func getWindDirectionFromDegrees(deg:Double) -> NSString{
         switch deg {
         case 0...22.25:
             return "N"
@@ -73,7 +73,7 @@ class WeatherData {
             return "SW"
         case 247.5...292.5:
             return "W"
-        case 292.5...237.5:
+        case 292.5...337.5:
             return "NW"
         case 337.5...360:
             return "N"
@@ -83,15 +83,15 @@ class WeatherData {
     }
     
     var locationName:NSString!
-    var currentTemp:NSString!
-    var highTemp:NSString!
-    var lowTemp:NSString!
-    var windSpeed:NSString!
+    var currentTemp:Double!
+    var highTemp:Double!
+    var lowTemp:Double!
+    var windSpeed:Double!
     var windDirection:NSString!
     var description:NSString!
     var iconURL:NSString!
     
-    init(locationName:NSString, currentTemp:NSString, highTemp:NSString, lowTemp:NSString, windSpeed:NSString, windDirection:Float, description:NSString, icon:Int)
+    init(locationName:NSString, currentTemp:Double, highTemp:Double, lowTemp:Double, windSpeed:Double, windDirection:Double, description:NSString, icon:NSString)
     {
         self.locationName = locationName
         self.currentTemp = currentTemp
